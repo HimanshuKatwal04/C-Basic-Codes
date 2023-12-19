@@ -1,3 +1,4 @@
+\\WAP to print the maximum and minimum value in an array entered by the user
 #include<stdio.h>
 void main()
 {
