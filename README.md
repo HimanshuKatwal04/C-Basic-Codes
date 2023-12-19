@@ -1,2 +1,1 @@
-# C-Daily-Codes
-# I will be posting daily C Codes I learn here in this repo
+<h1 align="center">Follow my repo for daily C codes  I learned </h1>
