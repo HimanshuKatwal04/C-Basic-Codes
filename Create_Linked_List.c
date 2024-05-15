@@ -16,6 +16,14 @@ void traverse_and_print_(struct Node *ptr)
         ptr=ptr->next;
     }
 }
+
+struct Node *insert(struct node *head,int data)
+{
+    ptr=(struct Node *)malloc(sizeof(struct Node));
+    ptr->next=head;
+    head=ptr;
+    return head;
+}
 int main()
 {
     struct Node *head;
@@ -34,9 +42,11 @@ int main()
    
     third->data=15;
     third->next=NULL;
+    
+    
    
      traverse_and_print_(head);
+     int data=3;
+     head=insert(head,data);
      return 0;
 }
-
-
