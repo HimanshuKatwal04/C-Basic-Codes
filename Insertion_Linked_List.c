@@ -1,4 +1,4 @@
-//WAP to create a user defined linked list and then insert a node  
+//WAP to create a user defined linked list and then insert a node at front,at last, and in specified position
 
 #include<stdio.h>
 #include<stdlib.h>
