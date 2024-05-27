@@ -84,21 +84,19 @@ struct node{
 
           void insert_in_between()
           {
-          int pos;
+          int pos,i=1;
           struct node *newnode=(struct node*)malloc(sizeof(struct node));
           printf("Enter the element to insert\n");
           scanf("%d",&newnode->data);
+          newnode->next=NULL;
           printf("Enter the position  ");
           scanf("%d",&pos);
           temp=head;
-          for(int x=1;x<pos;x++)
-            {
+          while(i<pos-1)
+          {
               temp=temp->next;
-              if(x=pos-1)
-                  {
-                      temp->next=newnode;
-                  }
-              newnode->next=temp;
-              temp->next=newnode;
-            }
+              i++;
           }
+          newnode->next=temp->next;
+          temp->next=newnode;
+         }
