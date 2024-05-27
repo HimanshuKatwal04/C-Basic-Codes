@@ -1,52 +1,104 @@
-//WAP to create three nodes of a linked list and then add a fourth node at the beginning of the list and then traverse and print the data of each node
+//WAP to create a user defined linked list and then insert a node  
 
 #include<stdio.h>
 #include<stdlib.h>
 
-//DEclaring the node
-struct Node{
-    int data;
-    struct Node *next;
-};
+struct node{
+       int data;
+       struct node *next;
+       };
+       struct node *head,*temp,*newnode;
+       void main()
+       {
+              void create();
+              create();
+              void traverse();
+              void insert_at_first();
+              insert_at_first();
+              traverse();
+              void insert_at_last();
+              insert_at_last();
+              traverse();
+              void insert_in_between();
+              insert_in_between();
+              traverse();
+        }
+        void create()
+        {
+              char choice;
+               do
+              {
+              newnode=(struct node*)malloc(sizeof(struct node));
+              printf("Enter the data in node\n");
+              scanf("%d",&newnode->data);
+              newnode->next=NULL;
+             
+                 if(head==NULL)
+                     {
+                            head=newnode;
+                            temp=newnode;
+                      }
+                      else
+                      {
+                            temp->next=newnode;
+                            temp=newnode;
+                       }
+                printf("Enter your choice\n");
+                scanf("%s",&choice);
+              }while(choice=='y');
+           }
+           
+           void traverse()
+           {
+              temp=head;
+              while(temp!=0)
+              {
+                printf("%d\n",temp->data);
+                temp=temp->next;
+              }
+          }
 
+          void insert_at_first()
+          {
+          struct node *newnode=(struct node*)malloc(sizeof(struct node));
+          printf("Enter the element to insert\n");
+          scanf("%d",&newnode->data);
+          newnode->next=head;
+          head=newnode;
+          }
+         
+          void insert_at_last()
+          {
+          //struct node *temp=head;
+          struct node *newnode=(struct node*)malloc(sizeof(struct node));
+          printf("Enter the element to insert\n");
+          scanf("%d",&newnode->data);
+          struct node *temp=head;
+          while (temp->next!=NULL)
+              {      
+                temp=temp->next;
+              }
+          newnode->next=NULL;
+          temp->next=newnode;
+          }
 
-//Function to insert node at beginning
-struct Node *insert(struct Node *head,int data)
-{
-   struct Node *ptr=(struct Node *)malloc(sizeof(struct Node));
-    ptr->next=head;
-   ptr->data=data;
-    return ptr;
-}
-//Function to traverse the list
-void traverse_and_print_(struct Node *ptr)
-{
-    printf("The data and link are as folowed\n");
-    while(ptr!=0){
-        printf("%d , %d\n",ptr->data,ptr->next);
-        ptr=ptr->next;
-    }
-}
-int main()
-{
-    struct Node *head;
-    struct Node *second;
-    struct Node *third;
-   
-    head=(struct Node *)malloc(sizeof(struct Node));
-    second=(struct Node *)malloc(sizeof(struct Node));
-    third=(struct Node *)malloc(sizeof(struct Node));
-   
-    head->data=5;
-    head->next=second;
-   
-    second->data=10;
-    second->next=third;
-   
-    third->data=15;
-    third->next=NULL;
-    
-    head=insert(head,56);
-    traverse_and_print_(head);
-    return 0;
-}
+          void insert_in_between()
+          {
+          int pos;
+          struct node *newnode=(struct node*)malloc(sizeof(struct node));
+          printf("Enter the element to insert\n");
+          scanf("%d",&newnode->data);
+          printf("Enter the position  ");
+          scanf("%d",&pos);
+          temp=head;
+          for(int x=1;x<pos;x++)
+            {
+              temp=temp->next;
+              if(x=pos-1)
+                  {
+                      temp->next=newnode;
+                  }
+              newnode->next=temp;
+              temp->next=newnode;
+            }
+          }
